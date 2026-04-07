@@ -1,0 +1,10 @@
+RELATORIO DE PAGAMENTOS
+===========================================
+Internacao: 4b048526-5d18-4f72-ac71-97810e974bdb
+Entrada: 2026-03-20
+Alta: 2026-03-24
+CPF: 12345678901
+Valor Pago: R$ 468.00
+Forma de Pagamento: CARTAO_CREDITO_A_VISTA
+-------------------------------------------
+TOTAL RECEBIDO: R$ 468.00

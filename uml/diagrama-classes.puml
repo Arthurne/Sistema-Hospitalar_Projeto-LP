@@ -1,0 +1,67 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class HospitalFacade
+class GerenciadorPacientes
+class GerenciadorMedicos
+class GerenciadorInternacoes
+class GerenciadorPagamentos
+class Persistencia
+class DataStore
+
+class Paciente {
+  - nome: String
+  - cpf: String
+  - telefone: String
+  - planoSaude: PlanoSaude
+}
+
+class PlanoSaude {
+  - operadora: String
+  - tipoMaximoPermitido: TipoInternacao
+  - percentualPagamentoPaciente: double
+}
+
+class Medico {
+  - nome: String
+  - crm: String
+  - especialidade: Especialidade
+  - ativo: boolean
+}
+
+class Internacao {
+  - id: String
+  - localizacao: String
+  - dataEntrada: LocalDate
+  - dataAlta: LocalDate
+}
+
+class Pagamento {
+  - formaPagamento: FormaPagamento
+  - valorPago: double
+}
+
+enum TipoInternacao
+enum Especialidade
+enum FormaPagamento
+
+HospitalFacade --> GerenciadorPacientes
+HospitalFacade --> GerenciadorMedicos
+HospitalFacade --> GerenciadorInternacoes
+HospitalFacade --> GerenciadorPagamentos
+HospitalFacade --> Persistencia
+Persistencia --> DataStore
+DataStore --> GerenciadorPacientes
+DataStore --> GerenciadorMedicos
+DataStore --> GerenciadorInternacoes
+DataStore --> GerenciadorPagamentos
+
+Paciente *-- PlanoSaude
+Internacao --> Paciente
+Internacao --> Medico
+Internacao --> TipoInternacao
+Pagamento --> Internacao
+Pagamento --> FormaPagamento
+Medico --> Especialidade
+PlanoSaude --> TipoInternacao
+@enduml
