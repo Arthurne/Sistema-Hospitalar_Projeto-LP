@@ -98,8 +98,8 @@ mvn test
 ### Executar a aplicação
 
 ```bash
-mvn compile
-mvn exec:java -Dexec.mainClass="br.ufcg.hospital.app.Main"
+mvn package
+java -Dfile.encoding=UTF-8 -cp target/classes br.ufcg.hospital.app.Main
 ```
 
 Caso o plugin Exec não esteja configurado no ambiente, também é possível executar pelo IntelliJ IDEA, abrindo o projeto como projeto Maven e iniciando a classe:
